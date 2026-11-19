@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>汉语听说 — Final Exam</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+ 
+<div class="page-header">
+  <div class="page-title">
+    <span class="page-title-zh">生词</span>
+    <span class="page-title-en">Flashcards</span>
+    <span style="font-size:18px">🌾</span>
+  </div>
+  <div class="page-subtitle">汉语听说 · <span id="total-count">0</span> คำ · Final test</div>
+</div>
+ 
+<div class="tabs">
+  <button class="tab-btn active" onclick="setFilter('all')">ทั้งหมด<br><span class="tab-sub" id="cnt-all-sub">0 คำ</span></button>
+  <button class="tab-btn" onclick="setFilter(0)">话题一<br><span class="tab-sub">《你点多了》</span></button>
+  <button class="tab-btn" onclick="setFilter(1)">话题二<br><span class="tab-sub">《朋友，慢点儿》</span></button>
+  <button class="tab-btn" onclick="setFilter(2)">话题三<br><span class="tab-sub">《结婚送什么》</span></button>
+  <button class="tab-btn" onclick="setFilter(3)">话题四<br><span class="tab-sub">《感谢爸妈教会我》</span></button>
+  <button class="tab-btn" onclick="setFilter(4)">话题五<br><span class="tab-sub">《百年好合》</span></button>
+  <button class="tab-btn" onclick="setFilter(5)">话题六<br><span class="tab-sub">《“物美”还是“价廉”？》</span></button>
+  <button class="tab-btn" onclick="setFilter(6)">话题七<br><span class="tab-sub">《端午节为什么吃粽子？》</span></button>
+</div>
+ 
+<div class="progress-bar-wrap"><div class="progress-bar-fill" id="pfill"></div></div>
+<div class="progress-text" id="ptext">1 / 0</div>
+<div class="counters">
+  <div class="counter-know"><span class="dot dot-g"></span> จำได้ <span id="cnt-know">0</span></div>
+  <div class="counter-no"><span class="dot dot-r"></span> จำไม่ได้ <span id="cnt-no">0</span></div>
+</div>
+ 
+<div class="scene" id="scene">
+  <div class="card-wrap" id="card" onclick="flipCard()">
+    <div class="card-face card-front">
+      <div class="f-chapter" id="f-chapter">ตอนที่ 1</div>
+      <div class="f-zh" id="f-zh">—</div>
+      <div class="f-hint">▷ แตะเพื่อดูความหมาย</div>
+    </div>
+    <div class="card-face card-back">
+      <div class="b-chapter" id="b-chapter">ตอนที่ 1</div>
+      <div class="b-py" id="b-py">—</div>
+      <div class="b-zh" id="b-zh">—</div>
+      <div class="b-pos" id="b-pos">n</div>
+      <div class="b-th" id="b-th">—</div>
+      <div class="b-divider"></div>
+      <div class="ex-box">
+        <div class="ex-label">ตัวอย่างประโยค</div>
+        <div class="ex-zh" id="ex-zh">—</div>
+        <div class="ex-py" id="ex-py">—</div>
+        <div class="ex-th">🇹🇭 <span id="ex-th">—</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+<div class="action-row" id="action-row">
+  <button class="btn btn-no"  onclick="markCard(false)">❌ จำไม่ได้</button>
+  <button class="btn btn-yes" onclick="markCard(true)">✅ จำได้</button>
+  <button class="btn btn-next" onclick="nextCard()">ถัดไป →</button>
+</div>
+<div class="secondary-row">
+  <button class="btn-sec" onclick="prevCard()">← ย้อน</button>
+  <button class="btn-sec" onclick="shuffleCards()">🔀 สับใหม่</button>
+  <button class="btn-sec" onclick="restartAll()">🔄 เริ่มใหม่</button>
+</div>
+ 
+<div class="review-screen" id="review-screen">
+  <div class="review-header">
+    <div class="review-emoji">🏆</div>
+    <div class="review-title">เสร็จแล้ว!</div>
+    <div class="review-sub">ท่องครบทุกคำแล้ว<br>ดูคำที่ยังต้องฝึกเพิ่มด้านล่าง</div>
+    <div class="review-stats">
+      <div class="r-stat r-stat-know"><span class="r-stat-num" id="final-know">0</span><span class="r-stat-lbl">✅ จำได้</span></div>
+      <div class="r-stat r-stat-no"><span class="r-stat-num" id="final-no">0</span><span class="r-stat-lbl">❌ จำไม่ได้</span></div>
+    </div>
+    <div class="review-btns">
+      <button class="btn-retry"   onclick="retryWrong()">🔁 ทบทวนคำที่ยังไม่ได้</button>
+      <button class="btn-restart2" onclick="restartAll()">🔄 เริ่มใหม่ทั้งหมด</button>
+    </div>
+  </div>
+  <div class="r-section-title">คำที่ยังต้องฝึก</div>
+  <div id="review-list" style="width:100%;"></div>
+</div>
+ 
+<script src="command.js"></script>
+</body>
+</html>
