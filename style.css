@@ -34,7 +34,7 @@ body{
 /* ---------- Background ---------- */
 body {
   background-image: 
-    linear-gradient( rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url('p1 .jpg');
+    linear-gradient( rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url('images/p1\ .jpg');
     background-size: 100% auto;
     background-position: top center;
     background-attachment: fixed;
